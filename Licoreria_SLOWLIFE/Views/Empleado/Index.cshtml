@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<table class="table">
+
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Apellidos</th>
+            <th>Ciudad</th>
+            <th>Fecha de ingreso</th>
+            <th>Estado</th>
+            <th>Usuario</th>
+            <th>Contraseña</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        
+        @foreach (var empleado in Model)
+        {
+            string estado = "";
+            if (empleado.estado == true)
+            {
+                estado = "Activo";
+            }
+            else
+            {
+                estado = "Bloqueado";
+            }
+            
+            <tr>
+                @{ var apellidos = empleado.apellidoP + " " + empleado.apellidoM;}
+                <td>@empleado.nombre</td>
+                <td>@apellidos</td>
+                <td>@empleado.ciudad</td>
+                <td>@empleado.fechaIngreso</td>
+                <td>@estado</td>
+                <td>@empleado.usuario</td>
+                <td>@empleado.passwd</td>
+            </tr>
+        }  
+        
+    </tbody>
+
+</table>

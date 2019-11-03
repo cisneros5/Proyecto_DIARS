@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Usuario</th>
+            <th>Contraseña</th>
+            <th>Estado</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var admin in Model) {
+        string nombre = "";
+        if (admin.estado == true)
+        {
+            nombre = "Activo";
+        }
+        else
+        {
+            nombre = "Bloqueado";
+        }
+        
+        <tr>
+            <td>@admin.usuario</td>
+            <td>@admin.passwd</td>
+            <td>@nombre</td>
+            <td>
+            <a href="/Admin/Editar?id=@admin.idAdmin">Editar</a>
+            <a href="/Admin/Eliminar?id=@admin.idAdmin">Eliminar</a>
+            </td>
+        </tr> 
+        
+    }
+
+        
+    </tbody>
+</table>

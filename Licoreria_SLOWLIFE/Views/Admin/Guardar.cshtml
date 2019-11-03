@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewBag.Title = "Guardar";
+}
+<h2>Guardar</h2>
+
+<form action="/Admin/AdminGuardar" method="post">
+
+    <h4>Usuario: </h4>
+    <input class="form-control" name="Usuario" placeholder="Usuario" />
+    <h4>Contraseña: </h4>
+    <input class="form-control" type="password" name="passwd" id="passwd" placeholder="Contraseña"/>
+    <h4>Re-Contraseña: </h4>
+    <input class="form-control" type="password" name="passwd2" id="passwd2" placeholder="Re-Contraseña" />
+
+   
+
+    <button type="submit" id="guardar" name="guardar">Guardar</button>
+    <a href="Index">Cancelar</a>
+
+
+</form>
+
+<script>
+
+    var inp1 = $("#passwd").text();
+    var inp2 = $("#passwd2").text();
+    var btn = $("#guardar");
+
+        $("#passwd").keyup(function () {
+
+            
+
+            if ($("#passwd").val() == $("#passwd2").val() ) {
+                
+                $("#guardar").prop('disabled',false);
+            }
+            
+            else {
+                $("#guardar").prop('disabled',true);
+            }
+
+        });
+
+        $("#passwd2").keyup(function () {
+
+            if ($("#passwd").val() == $("#passwd2").val() ) {
+
+                $("#guardar").prop('disabled', false);
+            }
+           
+            else {
+                $("#guardar").prop('disabled', true);
+            }
+
+        });
+</script>

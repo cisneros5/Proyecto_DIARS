@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "Editar";
+}
+
+<h2>Editar</h2>
+
+ 
+<form action="/Admin/Editar?id=@Model.idAdmin" method="post">
+
+    <h4>Usuario: </h4>
+    <input class="form-control" name="usuario" id="usuario" placeholder="Usuario" value=@Model.usuario />
+    <h4>Contraseña: </h4>
+    <input class="form-control" type="password" name="passwd" id="passwd" placeholder="Contraseña" value=@Model.passwd />
+    <h4>Estado: </h4>
+    @{bool x = true;
+    bool y = false;}
+    <select name="estado" id="estado">
+        <option value=@x>Activo</option>
+        <option value=@y>Bloqueado</option>
+    </select>
+
+    <button type="submit" id="guardar" name="guardar">Guardar</button>
+    <a href="Index">Cancelar</a>
+
+</form>
